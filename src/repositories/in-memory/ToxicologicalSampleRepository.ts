@@ -2,8 +2,8 @@ import { IToxicologicalSampleDTO } from '../../interfaces/repositories/IToxicolo
 import { IToxicologicalAnalysisRepository } from '../../interfaces/repositories/IToxicologicalSampleRepository';
 import ToxicologicalSample, { IToxicologicalSample } from '../../models/ToxicologicalSample';
 
-
 export class ToxicologicalSampleRepositoryInMemory implements IToxicologicalAnalysisRepository {
+
     private repository: IToxicologicalSample[] = [];
 
     async create(data: IToxicologicalSampleDTO): Promise<IToxicologicalSample> {
@@ -13,6 +13,10 @@ export class ToxicologicalSampleRepositoryInMemory implements IToxicologicalAnal
 
         await this.repository.push(analisys);
         return analisys
+    }
+
+    async list(): Promise<IToxicologicalSample[]> {
+        return this.repository
     }
 
 }

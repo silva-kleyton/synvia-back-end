@@ -14,4 +14,8 @@ export class ToxicologicalSampleRepository implements IToxicologicalAnalysisRepo
         return await this.repository.create(data);
     }
 
+    async list(): Promise<IToxicologicalSample[]> {
+        return await this.repository.find();
+    }
+
 }

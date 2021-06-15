@@ -1,5 +1,4 @@
 import { IToxicologicalSampleDTO } from './../../interfaces/repositories/IToxicologicalSampleRepository';
-import { AppError } from '../../errors/AppError';
 import { ToxicologicalSampleRepositoryInMemory } from './../../repositories/in-memory/ToxicologicalSampleRepository';
 import { ToxicologicalAnalysisUseCase } from "./ToxicologicalAnalysisUseCase";
 

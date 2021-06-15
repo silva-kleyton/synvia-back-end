@@ -18,4 +18,6 @@ export interface IToxicologicalSampleDTO {
 
 export interface IToxicologicalAnalysisRepository {
     create(data: IToxicologicalSampleDTO): Promise<IToxicologicalSample>;
+    list(): Promise<IToxicologicalSample[]>;
+
 }

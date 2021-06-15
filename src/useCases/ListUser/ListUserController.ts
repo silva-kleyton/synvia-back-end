@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { ListUserUseCase } from "./ListUserUseCase";
 
-
 export class ListUserController {
     constructor(private listUserUseCase: ListUserUseCase) { }
 
