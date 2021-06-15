@@ -1,6 +1,6 @@
-import { IToxicologicalSampleDTO } from '../interfaces/repositories/IToxicologicalSampleRepository';
-import { IToxicologicalAnalysisRepository } from '../interfaces/repositories/IToxicologicalSampleRepository';
-import ToxicologicalSample, { IToxicologicalSample } from '../models/ToxicologicalSample';
+import { IToxicologicalSampleDTO } from '../../interfaces/repositories/IToxicologicalSampleRepository';
+import { IToxicologicalAnalysisRepository } from '../../interfaces/repositories/IToxicologicalSampleRepository';
+import ToxicologicalSample, { IToxicologicalSample } from '../../models/ToxicologicalSample';
 
 
 export class ToxicologicalSampleRepository implements IToxicologicalAnalysisRepository {

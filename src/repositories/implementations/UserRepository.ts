@@ -1,5 +1,5 @@
-import { ICreateUserDTO, IUserRepository } from '../interfaces/repositories/IUserRepository';
-import User, { IUser } from '../models/User';
+import { ICreateUserDTO, IUserRepository } from '../../interfaces/repositories/IUserRepository';
+import User, { IUser } from '../../models/User';
 
 
 export class UserRepository implements IUserRepository {

@@ -1,4 +1,4 @@
-import { ToxicologicalSampleRepository } from './../../repositories/ToxicologicalSampleRepository';
+import { ToxicologicalSampleRepository } from '../../repositories/implementations/ToxicologicalSampleRepository';
 import { ToxicologicalAnalysisUseCase } from './ToxicologicalAnalysisUseCase';
 import { ToxicologicalAnalysisController } from './ToxicologicalAnalysisController';
 
