@@ -11,7 +11,7 @@ describe("Create User", () => {
         createUserUserCase = new CreateUserUseCase(userRepositoryInMemory)
     });
 
-    it("should be create user in memory", async () => {
+    it("Cria um usuário na memoria", async () => {
         const objectUser = {
             name: "Name teste",
             email: "teste@teste.com",
@@ -23,7 +23,7 @@ describe("Create User", () => {
         expect(user).toHaveProperty("_id")
     });
 
-    it("No more than one user with the same name should be created in memory.", async () => {
+    it("Não permitir cadastro com email duplicado", async () => {
         expect(async () => {
             const objectUser = {
                 name: "Name teste",
