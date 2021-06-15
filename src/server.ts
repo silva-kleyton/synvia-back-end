@@ -23,7 +23,8 @@ app.use(routes);
 app.use((error: Error, request: Request, response: Response, _: NextFunction) => {
     if (error instanceof AppError) {
         return response.status(error.statusCode).json({
-            message: error.message
+            message: error.message,
+            details: error.details
         });
     }
 

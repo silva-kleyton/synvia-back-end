@@ -1,6 +1,7 @@
 import Joi from "joi";
 
-const createUSer = Joi.object({
+const createUserValidation = Joi.object({
+    name: Joi.string().required(),
     email: Joi.string().email().lowercase().required().messages({
         "string.empty": `email não pode estar vazio`,
         "any.required": `O campo email é obrigatório`
@@ -8,4 +9,4 @@ const createUSer = Joi.object({
     password: Joi.string().required()
 });
 
-export { createUSer };
+export { createUserValidation };
