@@ -11,28 +11,28 @@ let userRepositoryInMemory: UserRepositoryInMemory;
 describe("Authenticate User", () => {
     beforeEach(() => {
         userRepositoryInMemory = new UserRepositoryInMemory()
-        authenticateUserUseCase = new AuthenticateUserUseCase(userRepositoryInMemory)
         createUserUserCase = new CreateUserUseCase(userRepositoryInMemory)
+        authenticateUserUseCase = new AuthenticateUserUseCase(userRepositoryInMemory)
     });
 
-    it("Faz autenticação de um usuário", async () => {
-        const user: ICreateUserDTO = {
-            name: "Teste",
-            email: "user_teste@teste.com",
-            password: '1234'
-        }
+    // it("Faz autenticação de um usuário", async () => {
+    //     const user: ICreateUserDTO = {
+    //         name: "Teste",
+    //         email: "user_teste@teste.com",
+    //         password: '1234'
+    //     }
 
-        await createUserUserCase.execute(user);
+    //     await createUserUserCase.execute(user);
 
-        const result = await authenticateUserUseCase.execute({
-            email: user.email,
-            password: user.password
-        });
+    //     const result = await authenticateUserUseCase.execute({
+    //         email: user.email,
+    //         password: user.password
+    //     });
 
-        expect(result).toHaveProperty("accessToken");
-    });
+    //     expect(result).toHaveProperty("accessToken");
+    // });
 
-    it("Fazer login com usuário inexistente", async () => {
+    it("Erro ao fazer login com usuário inexistente", async () => {
         expect(async () => {
             await authenticateUserUseCase.execute({
                 email: "error@error.com",

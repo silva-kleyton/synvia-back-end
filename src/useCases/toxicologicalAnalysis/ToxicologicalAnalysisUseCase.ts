@@ -19,7 +19,7 @@ interface IRequest {
 
 interface IResponse {
     codigo_amostra: string;
-    sample: boolean;
+    result: boolean;
 }
 
 export class ToxicologicalAnalysisUseCase {
@@ -28,18 +28,21 @@ export class ToxicologicalAnalysisUseCase {
     async execute(data: IRequest): Promise<IResponse> {
         const { codigo_amostra } = data;
 
-        if (this.analisys(data)) {
-            return { codigo_amostra, sample: true }
+        const result = this.analisys(data)
+
+        await this.toxicologicalSampleRepository.create(data);
+
+        if (result) {
+            return { codigo_amostra, result }
         }
 
-        return { codigo_amostra, sample: false }
+        return { codigo_amostra, result }
     }
-
 
     private analisys(data: IRequest): boolean {
         switch (true) {
             case data.cocaina >= 0.5
-                && (data.benzoilecgonina < 0.05 || data.cocaetileno < 0.05 || data.norcocaina < 0.05):
+                && (data.benzoilecgonina >= 0.05 || data.cocaetileno >= 0.05 || data.norcocaina >= 0.05):
                 return true;
             case data.anfetamina >= 0.2:
                 return true;
@@ -53,9 +56,9 @@ export class ToxicologicalAnalysisUseCase {
                 return true;
             case data.morfina >= 0.2:
                 return true;
-            case data.codeina >= 0.02:
+            case data.codeina >= 0.2:
                 return true;
-            case data.heroina >= 0.02:
+            case data.heroina >= 0.2:
                 return true;
             default:
                 return false;

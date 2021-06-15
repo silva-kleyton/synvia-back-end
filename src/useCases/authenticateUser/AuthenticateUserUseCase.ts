@@ -30,10 +30,6 @@ export class AuthenticateUserUseCase {
 
         const comparePassword = await compare(password, user.password)
 
-        if (password === user.password) {
-            console.log("Entrou no if")
-        }
-
         if (!comparePassword) {
             throw new AppError("Email ou senha incorretos")
         }
