@@ -1,8 +1,7 @@
 ## Bem vindo ao synvia-back-end!
 
 Backend Synvia.
-[Documentação](https://documenter.getpostman.com/view/2898019/TWDTLyE8)
-
+[Documentação](https://synvia-back-end.herokuapp.com/api-docs/)
 ### Instruções
 Para executar a aplicação é necessário os seguintes passos:
 - Criar um arquivo `.env` no mesmo padrão do `example.env` do projeto.
