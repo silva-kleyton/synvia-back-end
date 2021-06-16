@@ -1,6 +1,6 @@
 import { IToxicologicalSampleDTO } from '../../interfaces/repositories/IToxicologicalSampleRepository';
 import { IToxicologicalSample } from '../../models/ToxicologicalSample';
-import { ToxicologicalSampleRepositoryInMemory } from './../../repositories/in-memory/ToxicologicalSampleRepository';
+import { ToxicologicalSampleRepositoryInMemory } from '../../repositories/in-memory/ToxicologicalSampleRepository';
 import { ListToxicologicalSampleUseCase } from "./ListToxicologicalSampleUseCase";
 import { ToxicologicalAnalysisUseCase } from "../toxicologicalAnalysis/ToxicologicalAnalysisUseCase";
 

@@ -15,7 +15,7 @@ export class CreateUserUseCase {
         const userExists = await this.userRepository.findByEmail(email);
 
         if (userExists) {
-            throw new AppError('Usuário já existe');
+            throw new AppError('User exists');
         }
 
         const user = await this.userRepository.create({ name, email, password });

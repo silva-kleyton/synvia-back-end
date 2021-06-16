@@ -1,0 +1,317 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Documentação synvia-back-end",
+        "description": "Documentação da api do synvia-back-end",
+        "version": "1.0.0",
+        "contact": {
+            "email": "silva-kleyton@hotmail.com",
+            "name": "Kleyton"
+        }
+    },
+    "paths": {
+        "/user" : {
+            "post": {
+                "tags": ["User"],
+                "summary": "Create User",
+                "description": "Endpoint criação de usuário",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": ["name", "email", "password"],
+                                "example": {
+                                    "name": "teste",
+                                    "email": "teste@teste.com",
+                                    "password": "123456"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/auth" : {
+            "post": {
+                "tags": ["Auth"],
+                "summary": "Login User",
+                "description": "Endpoint login do usuário",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": ["email", "password"],
+                                "example": {
+                                    "email": "teste@teste.com",
+                                    "password": "123456"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type": "object",
+                                    "properties": {
+                                        "user": {
+                                            "type": "object",
+                                            "properties": {
+                                                "name":{
+                                                    "type": "string"
+                                                },
+                                                "email": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "accessToken": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Nout Authorized"
+                    }
+                }
+            }
+        },
+        "/analysis" : {
+            "post": {
+                "tags": ["Analysis"],
+                "summary": "Create Analysis",
+                "description": "Endpoint criação de analise",
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "codigo_amostra": {
+                                        "type": "string",
+                                        "maximum": 8
+                                    },
+                                    "cocaina": {
+                                        "type": "number"
+                                    },
+                                    "anfetamina": {
+                                        "type": "number"
+                                    },
+                                    "metanfetamina": {
+                                        "type": "number"
+                                    },
+	                                "mda": {
+                                        "type": "number"
+                                    },
+	                                "mdma": {
+                                        "type": "number"
+                                    },
+	                                "thc": {
+                                        "type": "number"
+                                    },
+	                                "morfina": {
+                                        "type": "number"
+                                    },
+	                                "codeina": {
+                                        "type": "number"
+                                    },
+	                                "heroina": {
+                                        "type": "number"
+                                    },
+	                                "benzoilecgonina": {
+                                        "type": "number"
+                                    },
+	                                "cocaetileno": {
+                                        "type": "number"
+                                    },
+	                                "norcocaina": {
+                                        "type": "number"
+                                    }
+                                },
+                                "required": [
+                                    "codigo_amostra",
+                                    "cocaina",
+                                    "anfetamina",
+                                    "metanfetamina",
+                                    "mda",
+                                    "mdma",
+                                    "thc",
+                                    "morfina",
+                                    "codeina",
+                                    "heroina",
+                                    "benzoilecgonina",
+                                    "cocaetileno",
+                                    "norcocaina"
+                                ],
+                                "example": {
+                                    "codigo_amostra": "02383322",
+                                    "cocaina": 0.5,
+                                    "anfetamina": 0.1,
+                                    "metanfetamina": 0.1,
+                                    "mda": 0.1,
+                                    "mdma": 0.1,
+                                    "thc": 0.04,
+                                    "morfina": 0.1,
+                                    "codeina": 0.1,
+                                    "heroina": 0.01,
+                                    "benzoilecgonina": 0,
+                                    "cocaetileno": 0,
+                                    "norcocaina": 0
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json":{
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "codigo_amostra": {
+                                            "type": "string"
+                                        },
+                                        "result": {
+                                            "type": "boolean"
+                                        }
+                                    }
+                                },
+                                "example":{
+                                        "codigo_amostra": "02383322",
+                                        "result": false
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            },
+            "get": {
+                "tags": ["Analysis"],
+                "summary": "List Sample",
+                "description": "Endpoint Lista de analise",
+                "security": [
+                    {
+                       "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json":{
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "codigo_amostra": {
+                                                "type": "string",
+                                                "maximum": 8
+                                            },
+                                            "cocaina": {
+                                                "type": "number"
+                                            },
+                                            "anfetamina": {
+                                                "type": "number"
+                                            },
+                                            "metanfetamina": {
+                                                "type": "number"
+                                            },
+                                            "mda": {
+                                                "type": "number"
+                                            },
+                                            "mdma": {
+                                                "type": "number"
+                                            },
+                                            "thc": {
+                                                "type": "number"
+                                            },
+                                            "morfina": {
+                                                "type": "number"
+                                            },
+                                            "codeina": {
+                                                "type": "number"
+                                            },
+                                            "heroina": {
+                                                "type": "number"
+                                            },
+                                            "benzoilecgonina": {
+                                                "type": "number"
+                                            },
+                                            "cocaetileno": {
+                                                "type": "number"
+                                            },
+                                            "norcocaina": {
+                                                "type": "number"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+          "bearerAuth": {
+            "type": "http",
+            "scheme": "bearer",
+            "bearerFormat": "JWT"
+          }
+        }
+    }
+}
