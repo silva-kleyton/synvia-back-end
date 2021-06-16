@@ -1,4 +1,6 @@
 ## Bem vindo ao synvia-back-end!
+URL da aplicação online
+https://synvia-back-end.herokuapp.com
 
 Backend Synvia.
 [Documentação](https://synvia-back-end.herokuapp.com/api-docs/)
